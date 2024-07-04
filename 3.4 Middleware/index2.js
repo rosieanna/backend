@@ -5,19 +5,22 @@ import cowsay from "cowsay";
 const app = express();
 const port = 3000;
 
-app.use(morgan('common'));
+// app.use(morgan('common'));
+app.use(logger);
 
-app.get("/", nonsense, (req, res) => {
-  res.send("Hello");
-});
-
-function nonsense(req, res, next) {
-  console.log(cowsay.say({ text : `I hate Duck Fuck` }));
+function logger(req, res, next) {
+  console.log("Request method: " + req.method);
+  console.log("Request url   : " + req.url);
   next();
 }
 
+app.get("/", (req, res) => {
+  res.send("Hello");
+});
+
 app.listen(port, () => {
   console.log(cowsay.say({
-    text : `Listening on port ${port}`
+    text : `All hail on port ${port}`,
+    f: 'yasuna_06',
   }));
 });
