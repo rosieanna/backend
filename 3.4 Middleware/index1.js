@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
 
-app.get("/submit", (req, res) => {
+app.post("/submit", (req, res) => {
   console.log(req.body);
   res.json("submitted");
 });
