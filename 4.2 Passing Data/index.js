@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/submit", (req, res) => {
-  let count = req.body["fName"].length +  req.body["lName"].length;
+  let count = req.body["fName"].length + req.body["lName"].length;
   res.render("index.ejs", {numberLetter: count});
   
 });
